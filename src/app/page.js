@@ -6,10 +6,18 @@ import NavBar from "./component/nav-bar";
 import frameImg from "./assets/Frame.png";
 import Image from "next/image";
 import Button from "./component/button";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function Home() {
   const inputRef=useRef()
+  const [fileSize , setFileSize]=useState()
+  console.log("file size  : " , fileSize)
+
+  const fileChangeHandler=(e)=>{
+    setFileSize((e.target.files[0].size/(1024 * 1024)).toFixed(2))
+
+  }
+
   return (
     <main>
       <NavBar />
@@ -28,7 +36,7 @@ export default function Home() {
         </div>
         <div className="flex justify-center my-5" >
 
-          <Button handleClick={() => inputRef?.current.click()} changeHandler={(e)=>console.log("---------------", e.target)} inputRef={inputRef} />
+          <Button handleClick={() => inputRef?.current.click()} changeHandler={fileChangeHandler} inputRef={inputRef} />
         </div>
 
         <div className="flex gap-20 my-20 items-center">

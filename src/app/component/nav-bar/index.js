@@ -1,3 +1,4 @@
+"use client"
 import React from "react";
 import imgIcon from "../../assets/imgIcon.png";
 import Image from "next/image";
@@ -5,7 +6,7 @@ import Image from "next/image";
 const NavBar = () => {
   return (
     <div className="bg-header_bg px-20 py-2 flex items-center">
-      <Image src={imgIcon} />
+      <Image src={imgIcon} alt="img icon" />
       <span className="ml-4 text-white">HEIC in JPG konvertieren</span>
     </div>
   );
